@@ -20,7 +20,7 @@ public class OrderSubmitService {
         log.info(Thread.currentThread().getName());
     }
 
-    @Async("asyncTaskExecutor")
+    @Async("asyncTaskExecutor")     // individual method level
     public void processOrder() throws InterruptedException {
         Thread.sleep(4000);
         log.info(this.getClass().getName()+":processOrder");
@@ -38,6 +38,27 @@ public class OrderSubmitService {
     public void orderDelivery() throws InterruptedException {
         Thread.sleep(5000);
         log.info(this.getClass().getName()+":orderDelivery");
+        log.info(Thread.currentThread().getName());
+    }
+
+    @Async
+    public void orderDelivery2() throws InterruptedException {
+        Thread.sleep(5000);
+        log.info(this.getClass().getName()+":orderDelivery2");
+        log.info(Thread.currentThread().getName());
+    }
+
+    @Async
+    public void orderDespatch2() throws InterruptedException {
+        Thread.sleep(4000);
+        log.info(this.getClass().getName()+":orderDespatch2");
+        log.info(Thread.currentThread().getName());
+    }
+
+    @Async
+    public void processOrder2() throws InterruptedException {
+        Thread.sleep(3000);
+        log.info(this.getClass().getName()+":processOrder2");
         log.info(Thread.currentThread().getName());
     }
 }

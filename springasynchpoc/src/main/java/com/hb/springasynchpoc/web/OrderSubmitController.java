@@ -22,4 +22,12 @@ public class OrderSubmitController {
         orderSubmitService.orderDelivery();
         return ResponseEntity.ok(HttpStatus.CREATED);
     }
+
+    @PostMapping("/submit2")
+    public ResponseEntity submitOrder2() throws InterruptedException {
+        orderSubmitService.processOrder2();
+        orderSubmitService.orderDespatch2();
+        orderSubmitService.orderDelivery2();
+        return ResponseEntity.ok(HttpStatus.CREATED);
+    }
 }
